@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import Styled from 'styled-components'
 
 const AboutDiv = Styled.div`
-    text-align: center;
 `
 
 const About = () => {

@@ -1,21 +1,25 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
-import Layout from "../components/layout"
+import Nav from "../components/nav"
+import Footer from "../components/footer"
+import Styled from "styled-components"
 import "../styles/backgroundImage.css"
 
+const IndexPageDiv = Styled.div`
+  text-align: center;
+  color: white;
+`
 const IndexPage = (props) => (
-  <Layout>
-    <BackgroundImage
-      className="background"
-      fluid={props.data.indexImage.childImageSharp.fluid}>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </BackgroundImage>
-  </Layout>
+  <BackgroundImage
+    className="background"
+    fluid={props.data.indexImage.childImageSharp.fluid}>
+    <Nav />
+    <IndexPageDiv>
+      <h1>Index Page Component</h1>
+    </IndexPageDiv>
+    <Footer />
+  </BackgroundImage>
 )
 
 export default IndexPage

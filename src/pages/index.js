@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
 import Nav from "../components/nav"
 import Footer from "../components/footer"
 import Styled from "styled-components"
@@ -8,30 +7,44 @@ import "../styles/backgroundImage.css"
 
 const IndexPageDiv = Styled.div`
   text-align: center;
-  color: white;
+  color: black;
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
 `
-const IndexPage = (props) => (
-  <BackgroundImage
-    className="background"
-    fluid={props.data.indexImage.childImageSharp.fluid}>
+const IndexPage = ({ data }) => (
+  <>
     <Nav />
     <IndexPageDiv>
-      <h1>Index Page Component</h1>
+      <h1>Index Page</h1>
+      {data.allStrapiReview.edges.map(review => 
+        <ul key={review.node.id}>
+          <li>{review.node.Title}</li>
+          <li>{review.node.Date.substring(0,10)}</li>
+          <li>{review.node.Location}</li>
+        </ul>
+      )}
+      <button onClick={() => console.log(data.allStrapiReview.edges[0].node)}>Data</button>
     </IndexPageDiv>
     <Footer />
-  </BackgroundImage>
+  </>
 )
 
 export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    indexImage: file(relativePath: { eq: "ramen-wallpaper.jpg"}) {
-      childImageSharp {
-        fluid(maxWidth: 1800) {
-          ...GatsbyImageSharpFluid
+    allStrapiReview {
+      edges {
+        node {
+          id
+          Date
+          Location
+          Title
         }
       }
     }
   }
-`;
+`

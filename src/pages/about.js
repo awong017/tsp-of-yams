@@ -1,26 +1,25 @@
 import React from 'react'
 import BackgroundImage from "gatsby-background-image"
+import Background from "../components/background"
 import Nav from "../components/nav"
 import Footer from "../components/footer"
 import { Link } from 'gatsby'
 import Styled from 'styled-components'
 
 const AboutDiv = Styled.div`
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: black;
 `
 
-const About = (props) => {
+const About = () => {
     return (
-        <BackgroundImage
-            className="background"
-            fluid={props.data.indexImage.childImageSharp.fluid}>
-            <Nav />
-            <AboutDiv>
-                <h1>About Page</h1>
-            </AboutDiv>
-            <Footer />
-        </BackgroundImage>
+      <>
+        <Nav />
+          <AboutDiv>
+            <h1>About Page</h1>
+          </AboutDiv>
+        <Footer />
+      </>
     )
 }
 

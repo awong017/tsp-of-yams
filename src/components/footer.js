@@ -3,7 +3,6 @@ import Styled from "styled-components"
 
 const FooterDiv = Styled.div`
   footer {
-    border: 2px solid white;
     text-align: center;
     color: white;
 

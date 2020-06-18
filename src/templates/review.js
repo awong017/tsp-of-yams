@@ -6,14 +6,25 @@ import Footer from '../components/footer'
 import Img from 'gatsby-image'
 
 const ReviewTemplateDiv = Styled.div`
-    text-align: center;
+  background-color: black;
+  color: white;
+  text-align: center;
 `
 
 const ReviewTemplate = ({ data }) => (
   <ReviewTemplateDiv>
     <Nav />
-    <h1>{data.strapiReview.title}</h1>
-    <p>{data.strapiReview.content}</p>
+    <div className="body">
+      <div className="content">
+        <h1>{data.strapiReview.date}</h1>
+        <h1>{data.strapiReview.title}</h1>
+        <h2>{data.strapiReview.location}</h2>
+        <p>{data.strapiReview.content}</p>
+      </div>
+      <div className="picture">
+        <h1>Image goes here</h1>
+      </div>
+    </div>
     <Footer />
   </ReviewTemplateDiv>
 )

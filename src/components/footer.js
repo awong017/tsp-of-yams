@@ -4,7 +4,7 @@ import Styled from "styled-components"
 const FooterDiv = Styled.div`
   footer {
     text-align: center;
-    color: black;
+    color: white;
 
     a {
       color: purple;

@@ -1,13 +1,21 @@
 import React from 'react'
+import Styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
+import Nav from '../components/nav'
+import Footer from '../components/footer'
 import Img from 'gatsby-image'
 
+const ReviewTemplateDiv = Styled.div`
+    text-align: center;
+`
+
 const ReviewTemplate = ({ data }) => (
-  <div>
+  <ReviewTemplateDiv>
+    <Nav />
     <h1>{data.strapiReview.title}</h1>
-    <Img fixed={data.strapiReview.cover.childImageSharp.fixed}/>
     <p>{data.strapiReview.content}</p>
-  </div>
+    <Footer />
+  </ReviewTemplateDiv>
 )
 
 export default ReviewTemplate
@@ -17,13 +25,6 @@ export const query = graphql`
     strapiReview(id: {eq: $id}) {
       title
       content
-      cover {
-          childImageSharp {
-            fixed(width: 200, height: 125) {
-              ...GatsbyImageSharpFixed
-                    }
-                }
-            }
         }
     }
 `

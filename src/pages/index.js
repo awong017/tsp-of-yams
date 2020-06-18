@@ -1,14 +1,16 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
+import BackgroundImage from "gatsby-background-image"
 import Nav from "../components/nav"
 import Footer from "../components/footer"
 import Styled from "styled-components"
 import "../styles/backgroundImage.css"
 
 const IndexPageDiv = Styled.div`
+  background-color: black;
   text-align: center;
-  color: black;
+  color: white;
 
   ul {
     padding-left: 0;
@@ -19,18 +21,20 @@ const IndexPageDiv = Styled.div`
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 50px;
-      width: 500px;
+      width: 600px;
       border: 2px solid black;
 
-      Img {
-        opacity: 0.5;
+      &:hover .content {
+        opacity: 1.0;
       }
 
       .content {
         position: absolute;
-        left: 200px;
-        bottom: 50px;
+        left: 225px;
+        bottom: 125px;
         color: white;
+        opacity: 0.5;
+        transition: 0.5s;
       }
     }
   }
@@ -39,24 +43,22 @@ const IndexPage = ({ data }) => (
   <>
     <Nav />
     <IndexPageDiv>
-      <h1>Index Page</h1>
-        <ul>
-          {data.allStrapiReview.edges.map(review =>
-            <li>
-              <Link to={review.node.id}>
-                <div className="container">
-                  <Img fixed={review.node.cover.childImageSharp.fixed} />
-                  <div className="content">
-                    <h3>{review.node.title}</h3>
-                    <p>{review.node.date.substring(0,10)}</p>
-                    <p>{review.node.location}</p>
-                  </div>
+      <h1>Collection Page</h1>
+      <ul>
+        {data.allStrapiReview.edges.map(review =>
+          <li>
+            <Link to={review.node.id}>
+              <div className="container">
+                <Img fluid={review.node.cover.childImageSharp.fluid} />
+                <div className="content">
+                  <h1>{review.node.title}</h1>
+                  <p>{review.node.date.substring(0,10)}</p>
                 </div>
-              </Link>
-            </li>
-          )}
-        </ul>
-      <button onClick={() => console.log(data.allStrapiReview.edges[0].node)}>Data</button>
+              </div>
+            </Link>
+          </li>
+        )}
+      </ul>
     </IndexPageDiv>
     <Footer />
   </>
@@ -72,8 +74,8 @@ export const pageQuery = graphql`
           id
           cover {
             childImageSharp {
-              fixed(width: 300, height: 200) {
-                ...GatsbyImageSharpFixed
+              fluid(maxWidth: 600, maxHeight: 300) {
+                ...GatsbyImageSharpFluid
               }
             }
           }

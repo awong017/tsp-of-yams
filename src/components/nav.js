@@ -51,7 +51,9 @@ const Nav = () => {
         </li>
         <li className="link-separator">|</li>
             <li className="collection-link">
-                <Link to={"/"}>
+                <Link 
+                    to={"/"}
+                    onClick={() => console.log("This is the collection link")}>
                     collection
                 </Link>
             </li>

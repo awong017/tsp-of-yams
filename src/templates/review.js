@@ -1,28 +1,60 @@
 import React from 'react'
 import Styled from 'styled-components'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Img from 'gatsby-image'
 
 const ReviewTemplateDiv = Styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
   background-color: black;
   color: white;
-  text-align: center;
+
+  .review-page {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    margin-top: 48px;
+
+    .body {
+      margin-left: 24px;
+      border: 2px solid red;
+
+      h1, h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 100;
+      }
+
+      p {
+        font-family: 'Lora', serif;
+      }
+
+      .content {
+        margin-top: 100px;
+      }
+    }
+
+    .picture {
+      border: 2px solid blue;
+      text-align: center;
+    }
+  }
 `
 
 const ReviewTemplate = ({ data }) => (
   <ReviewTemplateDiv>
     <Nav />
-    <div className="body">
-      <div className="content">
-        <h1>{data.strapiReview.date}</h1>
+    <div className="review-page">
+      <div className="body">
         <h1>{data.strapiReview.title}</h1>
-        <h2>{data.strapiReview.location}</h2>
-        <p>{data.strapiReview.content}</p>
+        <h3>{data.strapiReview.location}</h3>
+        <h3>{data.strapiReview.date.substring(0,10)}</h3>
+        <p className="content">{data.strapiReview.content}</p>
       </div>
       <div className="picture">
-        <h1>Image goes here</h1>
+        <Img 
+          fluid={data.strapiReview.cover.childImageSharp.fluid} />
       </div>
     </div>
     <Footer />
@@ -34,8 +66,18 @@ export default ReviewTemplate
 export const query = graphql`
   query ReviewTemplate($id: String!) {
     strapiReview(id: {eq: $id}) {
+      id
+      date
+      location
       title
       content
+      cover {
+        childImageSharp {
+          fluid(maxWidth: 1000, maxHeight: 500) {
+            ...GatsbyImageSharpFluid
+          }
         }
+      }
     }
+  }
 `

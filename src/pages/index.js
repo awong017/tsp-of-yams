@@ -7,10 +7,24 @@ import Footer from "../components/footer"
 import Styled from "styled-components"
 import "../styles/backgroundImage.css"
 
+
+
 const IndexPageDiv = Styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
   background-color: black;
   text-align: center;
   color: white;
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+  }
+
+  p {
+    font-family: 'Lora', serif;
+  }
 
   ul {
     padding-left: 0;
@@ -41,9 +55,10 @@ const IndexPageDiv = Styled.div`
 `
 const IndexPage = ({ data }) => (
   <>
+
     <Nav />
     <IndexPageDiv>
-      <h1>Collection Page</h1>
+      <h1>COLLECTION PAGE</h1>
       <ul>
         {data.allStrapiReview.edges.map(review =>
           <li>
@@ -51,7 +66,7 @@ const IndexPage = ({ data }) => (
               <div className="container">
                 <Img fluid={review.node.cover.childImageSharp.fluid} />
                 <div className="content">
-                  <h1>{review.node.title}</h1>
+                  <h1>{(review.node.title).toUpperCase()}</h1>
                   <p>{review.node.date.substring(0,10)}</p>
                 </div>
               </div>

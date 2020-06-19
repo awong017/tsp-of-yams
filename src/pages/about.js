@@ -17,6 +17,7 @@ const About = () => {
         <Nav />
           <AboutDiv>
             <h1>About Page</h1>
+            <h2>I am Ryan Yamamoto. I am a sexy motherfcker!</h2>
           </AboutDiv>
         <Footer />
       </>

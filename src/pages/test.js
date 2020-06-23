@@ -6,11 +6,17 @@ import Styled from 'styled-components'
 const TestDiv = Styled.div`
     text-align: center;
     color: white;
+
+    .background-image {
+        width: 100%;
+        height: 500px;
+    }
 `
 
 const Test = (props) => {
     return (
         <BackgroundImage
+            className="background-image"
             fluid={props.data.indexImage.childImageSharp.fluid}
         >
              <TestDiv>

@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import BackgroundImage from "gatsby-background-image"
 import Nav from "../components/nav"
 import Footer from "../components/footer"
 import Styled from "styled-components"
@@ -55,7 +54,6 @@ const IndexPageDiv = Styled.div`
 `
 const IndexPage = ({ data }) => (
   <>
-
     <Nav />
     <IndexPageDiv>
       <h1>COLLECTION PAGE</h1>

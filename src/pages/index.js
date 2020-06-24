@@ -1,8 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-import Nav from "../components/nav"
-import Footer from "../components/footer"
+import Layout from "../components/layout"
 import Styled from "styled-components"
 import "../styles/backgroundImage.css"
 
@@ -12,7 +11,6 @@ const IndexPageDiv = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
-  background-color: black;
   text-align: center;
   color: white;
 
@@ -53,8 +51,7 @@ const IndexPageDiv = Styled.div`
   }
 `
 const IndexPage = ({ data }) => (
-  <>
-    <Nav />
+  <Layout>
     <IndexPageDiv>
       <h1>COLLECTION PAGE</h1>
       <ul>
@@ -73,8 +70,7 @@ const IndexPage = ({ data }) => (
         )}
       </ul>
     </IndexPageDiv>
-    <Footer />
-  </>
+  </Layout>
 )
 
 export default IndexPage

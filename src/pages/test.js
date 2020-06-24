@@ -12,14 +12,11 @@ const TestDiv = Styled.div`
 const Test = (props) => {
     return (
         <Layout>
-            <BackgroundImage
-            className="background"
-            fluid={props.data.indexImage.childImageSharp.fluid}
-        >
+         
                 <TestDiv>
                     <h1>This is the test page</h1>
                 </TestDiv>
-            </BackgroundImage>
+          
         </Layout>
     )
 }

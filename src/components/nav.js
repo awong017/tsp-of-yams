@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import Styled from 'styled-components';
 
 const NavDiv = Styled.div`
-    background-color: black;
     color: white;
 
     ul {

@@ -1,6 +1,5 @@
 import React from 'react'
 import BackgroundImage from "gatsby-background-image"
-import Background from "../components/background"
 import Nav from "../components/nav"
 import Footer from "../components/footer"
 import { Link } from 'gatsby'

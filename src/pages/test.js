@@ -1,28 +1,26 @@
 import React from 'react'
-import BackgroundImage from 'gatsby-background-image'
 import { graphql } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
+import Layout from '../components/layout'
 import Styled from 'styled-components'
 
 const TestDiv = Styled.div`
     text-align: center;
     color: white;
-
-    .background-image {
-        width: 100%;
-        height: 500px;
-    }
 `
 
 const Test = (props) => {
     return (
-        <BackgroundImage
-            className="background-image"
+        <Layout>
+            <BackgroundImage
+            className="background"
             fluid={props.data.indexImage.childImageSharp.fluid}
         >
-             <TestDiv>
-                <h1>This is the test page</h1>
-            </TestDiv>
-        </BackgroundImage>
+                <TestDiv>
+                    <h1>This is the test page</h1>
+                </TestDiv>
+            </BackgroundImage>
+        </Layout>
     )
 }
 

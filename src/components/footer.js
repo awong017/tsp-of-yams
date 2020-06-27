@@ -22,7 +22,7 @@ const Footer = () => {
   return (
     <FooterDiv>
        <footer>
-      © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()} Tsp of Yams, built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a> and <a href="https://www.strapi.io">Strapi</a>
       </footer>

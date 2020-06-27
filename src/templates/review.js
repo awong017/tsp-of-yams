@@ -1,23 +1,24 @@
-import React from 'react'
-import Styled from 'styled-components'
-import { graphql } from 'gatsby'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
-import Img from 'gatsby-image'
+import React from "react"
+import Styled from "styled-components"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import Nav from "../components/nav"
+import Footer from "../components/footer"
+import Img from "gatsby-image"
 
 const ReviewTemplateDiv = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
-  height: 100vh;
+  min-height: 100vh;
   background-color: black;
   color: white;
 
   .review-page {
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    margin-top: 48px;
-    margin-bottom: 300px;
+    margin-bottom: 5vh;
+    height: 80vh;
 
     .body {
       margin-left: 24px;
@@ -45,18 +46,18 @@ const ReviewTemplateDiv = Styled.div`
 const ReviewTemplate = ({ data }) => (
   <ReviewTemplateDiv>
     <Nav />
-    <div className="review-page">
-      <div className="body">
-        <h1>{data.strapiReview.title}</h1>
-        <h3>{data.strapiReview.location}</h3>
-        <h3>{data.strapiReview.date.substring(0,10)}</h3>
-        <p className="content">{data.strapiReview.content}</p>
+      <div className="review-page">
+        <div className="body">
+          <h1>{data.strapiReview.title}</h1>
+          <h3>{data.strapiReview.location}</h3>
+          <h3>{data.strapiReview.date.substring(0,10)}</h3>
+          <p className="content">{data.strapiReview.content}</p>
+        </div>
+        <div className="picture">
+          <Img 
+            fluid={data.strapiReview.cover.childImageSharp.fluid} />
+        </div>
       </div>
-      <div className="picture">
-        <Img 
-          fluid={data.strapiReview.cover.childImageSharp.fluid} />
-      </div>
-    </div>
     <Footer />
   </ReviewTemplateDiv>
 )

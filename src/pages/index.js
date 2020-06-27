@@ -64,7 +64,6 @@ const reverseData = (data) => {
 const IndexPage = ({ data }) => (
   <Layout>
     <IndexPageDiv>
-      <button onClick={() => console.log(data)}>Data</button>
       <ul>
         {reverseData(data.allStrapiReview.edges).map(review =>
           <li>

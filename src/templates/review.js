@@ -38,6 +38,9 @@ const ReviewTemplateDiv = Styled.div`
     }
 
     .picture {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      border: 2px solid black;
       text-align: center;
     }
   }
@@ -45,20 +48,22 @@ const ReviewTemplateDiv = Styled.div`
 
 const ReviewTemplate = ({ data }) => (
   <ReviewTemplateDiv>
-    <Nav />
-      <div className="review-page">
-        <div className="body">
-          <h1>{data.strapiReview.title}</h1>
-          <h3>{data.strapiReview.location}</h3>
-          <h3>{data.strapiReview.date.substring(0,10)}</h3>
-          <p className="content">{data.strapiReview.content}</p>
-        </div>
-        <div className="picture">
-          <Img 
-            fluid={data.strapiReview.cover.childImageSharp.fluid} />
-        </div>
+    <Layout>
+    <div className="review-page">
+      <div className="body">
+        <h1>{data.strapiReview.title}</h1>
+        <h3>{data.strapiReview.location}</h3>
+        <h3>{data.strapiReview.date.substring(0,10)}</h3>
+        <p className="content">{data.strapiReview.content}</p>
       </div>
-    <Footer />
+      <div className="picture">
+        <Img fluid={data.strapiReview.picOne.childImageSharp.fluid} />
+        <Img fluid={data.strapiReview.picTwo.childImageSharp.fluid} />
+        <Img fluid={data.strapiReview.picThree.childImageSharp.fluid} />
+        <Img fluid={data.strapiReview.picFour.childImageSharp.fluid} />
+      </div>
+    </div>
+    </Layout>
   </ReviewTemplateDiv>
 )
 
@@ -73,6 +78,34 @@ export const query = graphql`
       title
       content
       cover {
+        childImageSharp {
+          fluid(maxWidth: 1000, maxHeight: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      picOne {
+        childImageSharp {
+          fluid(maxWidth: 1000, maxHeight: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      picTwo {
+        childImageSharp {
+          fluid(maxWidth: 1000, maxHeight: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      picThree {
+        childImageSharp {
+          fluid(maxWidth: 1000, maxHeight: 500) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      picFour {
         childImageSharp {
           fluid(maxWidth: 1000, maxHeight: 500) {
             ...GatsbyImageSharpFluid

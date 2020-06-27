@@ -30,7 +30,7 @@ const IndexPageDiv = Styled.div`
       position: relative;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 50px;
+      margin-bottom: 48px;
       width: 600px;
       border: 2px solid black;
 
@@ -39,9 +39,13 @@ const IndexPageDiv = Styled.div`
       }
 
       .content {
+        background-color: rgba(0,0,0,.8);
         position: absolute;
-        left: 225px;
-        bottom: 125px;
+        bottom: 0px;
+        left: 0px;
+        width: 600px;
+        height: 240px;
+        padding-top: 60px;
         color: white;
         opacity: 0.5;
         transition: 0.5s;

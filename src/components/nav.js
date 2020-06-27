@@ -4,6 +4,7 @@ import Styled from 'styled-components';
 
 const NavDiv = Styled.div`
     color: white;
+    border-top: 1px solid white;
 
     ul {
         display: grid;

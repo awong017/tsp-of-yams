@@ -9,6 +9,7 @@ const ReviewTemplateDiv = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
+  height: 100vh;
   background-color: black;
   color: white;
 

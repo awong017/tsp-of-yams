@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import Styled from "styled-components"
 
 const AboutDiv = Styled.div`
-  height: 100vh;
   text-align: center;
   color: white;
 `

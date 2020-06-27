@@ -7,10 +7,12 @@ const FooterDiv = Styled.div`
     color: white;
 
     a {
-      color: purple;
+      color: white;
+      text-decoration: none;
 
       &:hover {
         color: purple;
+        text-decoration: underline;
       }
     }
   }

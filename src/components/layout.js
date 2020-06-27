@@ -6,6 +6,7 @@ import Styled from "styled-components"
 import Background from "../images/wood-wallpaper.jpg"
 
 const LayoutDiv = Styled.div`
+    min-height: 100vh;
     background: 
         linear-gradient(
         rgba(0, 0, 0, 0.8),

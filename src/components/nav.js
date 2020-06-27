@@ -3,8 +3,9 @@ import { Link } from 'gatsby';
 import Styled from 'styled-components';
 
 const NavDiv = Styled.div`
-    color: white;
+    margin-bottom: 48px;
     border-top: 1px solid white;
+    color: white;
 
     ul {
         display: grid;

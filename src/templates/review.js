@@ -16,10 +16,10 @@ const ReviewTemplateDiv = Styled.div`
     display: grid;
     grid-template-columns: repeat(2, 50%);
     margin-top: 48px;
+    margin-bottom: 300px;
 
     .body {
       margin-left: 24px;
-      border: 2px solid red;
 
       h1, h3 {
         font-family: 'Montserrat', sans-serif;
@@ -36,7 +36,6 @@ const ReviewTemplateDiv = Styled.div`
     }
 
     .picture {
-      border: 2px solid blue;
       text-align: center;
     }
   }

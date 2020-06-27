@@ -12,7 +12,7 @@ const About = () => {
     <Layout>
       <AboutDiv>
         <h1>About Page</h1>
-        <h2>I am Ryan Yamamoto. I am a sexy motherfcker!</h2>
+        <h2>I am Ryan Yamamoto. Come eat with me!</h2>
       </AboutDiv>
     </Layout>
   )

@@ -3,14 +3,13 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Styled from "styled-components"
-import "../styles/backgroundImage.css"
-
-
 
 const IndexPageDiv = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
+  height: 100%;
+  min-height: 100%;
   text-align: center;
   color: white;
 
@@ -53,7 +52,6 @@ const IndexPageDiv = Styled.div`
 const IndexPage = ({ data }) => (
   <Layout>
     <IndexPageDiv>
-      <h1>COLLECTION PAGE</h1>
       <ul>
         {data.allStrapiReview.edges.map(review =>
           <li>

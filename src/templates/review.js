@@ -2,15 +2,12 @@ import React from "react"
 import Styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Nav from "../components/nav"
-import Footer from "../components/footer"
 import Img from "gatsby-image"
 
 const ReviewTemplateDiv = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
-  min-height: 100vh;
   background-color: black;
   color: white;
 
@@ -18,7 +15,7 @@ const ReviewTemplateDiv = Styled.div`
     display: grid;
     grid-template-columns: repeat(2, 50%);
     margin-bottom: 5vh;
-    height: 80vh;
+    min-height: 80vh;
 
     .body {
       margin-left: 24px;
@@ -40,8 +37,19 @@ const ReviewTemplateDiv = Styled.div`
     .picture {
       display: grid;
       grid-template-columns: repeat(2, 50%);
+      margin-right: 24px;
       border: 2px solid black;
       text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .review-page {
+      display: block;
+
+      .picture {
+        margin-left: 24px;
+      }
     }
   }
 `

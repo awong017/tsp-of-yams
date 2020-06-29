@@ -72,7 +72,7 @@ const IndexPage = ({ data }) => (
                 <Img fluid={review.node.cover.childImageSharp.fluid} />
                 <div className="content">
                   <h1>{(review.node.title).toUpperCase()}</h1>
-                  <p>{review.node.date.substring(0,10)}</p>
+                  <p>{review.node.location}</p>
                 </div>
               </div>
             </Link>

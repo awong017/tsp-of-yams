@@ -30,24 +30,36 @@ const ReviewTemplateDiv = Styled.div`
       }
 
       .content {
-        margin-top: 100px;
+        margin-top: 48px;
       }
     }
 
-    .picture {
+    .container {
+      position: relative;
       display: grid;
       grid-template-columns: repeat(2, 50%);
       margin-right: 24px;
       border: 2px solid black;
       text-align: center;
+
+      .black-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.3);
+      }
     }
   }
 
   @media screen and (max-width: 960px) {
+    h1, h3 {
+      text-align: center;
+    }
+
     .review-page {
       display: block;
 
-      .picture {
+      .container {
         margin-left: 24px;
       }
     }
@@ -64,11 +76,12 @@ const ReviewTemplate = ({ data }) => (
         <h3>{data.strapiReview.date.substring(0,10)}</h3>
         <p className="content">{data.strapiReview.content}</p>
       </div>
-      <div className="picture">
+      <div className="container">
         <Img fluid={data.strapiReview.picOne.childImageSharp.fluid} />
         <Img fluid={data.strapiReview.picTwo.childImageSharp.fluid} />
         <Img fluid={data.strapiReview.picThree.childImageSharp.fluid} />
         <Img fluid={data.strapiReview.picFour.childImageSharp.fluid} />
+        <div className="black-overlay" />
       </div>
     </div>
     </Layout>

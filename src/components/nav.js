@@ -8,27 +8,13 @@ const NavDiv = Styled.div`
     color: white;
 
     ul {
-        display: grid;
-        grid-template-columns: 45% 10% 45%;
+        display: flex;
+        justify-content: space-around;
         list-style: none;
+        width: 400px;
         margin-left: auto;
         margin-right: auto;
-        width: 200px;
         padding-left: 0;
-
-        .about-link {
-            margin-left: auto;
-            margin-right: 8px;
-        }
-
-        .link-separator {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .collection-link {
-            margin-left: 8px;
-        }
 
         a {
             color: #AAAAAA;
@@ -46,19 +32,29 @@ const Nav = () => {
   return (
     <NavDiv>
       <ul>
-        <li className="about-link">
+        <li>
             <Link to={"/about"}>
                 about
             </Link>
         </li>
-        <li className="link-separator">|</li>
-            <li className="collection-link">
-                <Link 
-                    to={"/"}
-                    onClick={() => console.log("This is the collection link")}>
-                    collection
-                </Link>
-            </li>
+        <li>|</li>
+        <li>
+            <Link to={"/"}>
+                collection
+            </Link>
+        </li>
+        <li>|</li>
+        <li>
+            <Link to={"/discovered"}>
+                discovered
+            </Link>
+        </li>
+        <li>|</li>
+        <li>
+            <Link to={"/recipes"}>
+                recipes
+            </Link>
+        </li>
         </ul>
     </NavDiv>
     )

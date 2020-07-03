@@ -1,35 +1,71 @@
 import React from "react"
+import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Styled from "styled-components"
 
 const AboutDiv = Styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
   min-height: 80vh;
   margin-bottom: 5vh;
-  text-align: center;
   color: white;
 
-  .profile-pic {
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid white;
-    padding-top: 48px;
-    width: 200px;
-    height: 152px;
+  .about-page {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 2px solid yellow;
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 100;
+    }
+
+    .profile-pic {
+      margin-top: 48px;
+      margin-left: 20vw;
+      margin-right: 24px;
+      border: 2px solid white;
+      width: 500px;
+    }
+
+    .body {
+      border: 2px solid blue;
+    }
   }
+
+ 
 `
 
-const About = () => {
+const About = (props) => {
   return (
     <Layout>
       <AboutDiv>
-        <h1>About Page</h1>
-        <div className="profile-pic">
-          <h2>Profile Pic</h2>
+        <div className="about-page">
+          <div className="profile-pic">
+            <Img
+              fluid={props.data.indexImage.childImageSharp.fluid} />
+          </div>
+          <section className="body">
+            <h1>RYAN YAMAMOTO</h1>
+            <p>Come eat with me!</p>
+          </section>
         </div>
-        <p>I am Ryan Yamamoto. Come eat with me!</p>
       </AboutDiv>
     </Layout>
   )
 }
 
 export default About
+
+export const pageQuery = graphql`
+  query {
+    indexImage: file(relativePath: { eq: "profile.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

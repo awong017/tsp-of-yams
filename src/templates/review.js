@@ -70,12 +70,12 @@ const ReviewTemplate = ({ data }) => (
   <ReviewTemplateDiv>
     <Layout>
     <div className="review-page">
-      <div className="body">
+      <section className="body">
         <h1>{data.strapiReview.title}</h1>
         <h3>{data.strapiReview.location}</h3>
         <h3>{data.strapiReview.date.substring(0,10)}</h3>
         <p className="content">{data.strapiReview.content}</p>
-      </div>
+      </section>
       <div className="container">
         <Img fluid={data.strapiReview.picOne.childImageSharp.fluid} />
         <Img fluid={data.strapiReview.picTwo.childImageSharp.fluid} />

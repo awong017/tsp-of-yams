@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Tsp of Yams`,
-    description: `Gatsby blog with strapi cms`,
-    author: `@gatsbyjs & @strapi`,
+    description: `Gatsby blog by Ryan Yamamoto`,
+    author: `Ryan Yamamoto`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

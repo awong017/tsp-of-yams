@@ -19,18 +19,39 @@ const ReviewTemplateDiv = Styled.div`
 
     .body {
       margin-left: 24px;
+      width: 700px;
 
-      h1, h3 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 100;
-      }
+      header {
+        h1, h3 {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 100;
+          color: #AAAAAA;
+        }
 
-      p {
-        font-family: 'Lora', serif;
+        .line-one {
+          border-top: 2px solid #AAAAAA;
+          margin-bottom: 12px;
+          width: 225px;
+        }
+  
+        .line-two {
+          border-top: 2px solid #AAAAAA;
+          margin-bottom: 12px;
+          margin-left: 16px;
+          width: 225px;
+        }
+  
+        .line-three {
+          border-top: 2px solid #AAAAAA;
+          margin-left: 32px;
+          width: 225px;
+        }
       }
 
       .content {
+        font-family: 'Lora', serif;
         margin-top: 48px;
+        margin-left: 48px;
       }
     }
 
@@ -71,9 +92,14 @@ const ReviewTemplate = ({ data }) => (
     <Layout>
     <div className="review-page">
       <section className="body">
-        <h1>{data.strapiReview.title}</h1>
-        <h3>{data.strapiReview.location}</h3>
-        <h3>{data.strapiReview.date.substring(0,10)}</h3>
+        <header>
+          <h1>{data.strapiReview.title}</h1>
+          <h3>{data.strapiReview.location}</h3>
+          <h3>{data.strapiReview.date.substring(0,10)}</h3>
+          <div className="line-one" />
+          <div className="line-two" />
+          <div className="line-three" />
+        </header>
         <p className="content">{data.strapiReview.content}</p>
       </section>
       <div className="container">

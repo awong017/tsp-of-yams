@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Styled from "styled-components"
@@ -14,27 +15,58 @@ const AboutDiv = Styled.div`
   .about-page {
     display: grid;
     grid-template-columns: 50% 50%;
-    border: 2px solid yellow;
 
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 100;
+    header {
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 100;
+        color: #AAAAAA;
+      }
+      
+      .line-one {
+        border-top: 2px solid #AAAAAA;
+        margin-bottom: 12px;
+        width: 225px;
+      }
+
+      .line-two {
+        border-top: 2px solid #AAAAAA;
+        margin-bottom: 12px;
+        margin-left: 16px;
+        width: 225px;
+      }
+
+      .line-three {
+        border-top: 2px solid #AAAAAA;
+        margin-left: 32px;
+        width: 225px;
+      }
     }
 
     .profile-pic {
-      margin-top: 48px;
-      margin-left: 20vw;
-      margin-right: 24px;
+      margin-left: auto;
+      margin-right: 48px;
       border: 2px solid white;
-      width: 500px;
+      width: 600px;
     }
 
     .body {
-      border: 2px solid blue;
+      margin-top: 100px;
+      margin-left: 48px;
+      width: 700px;
+
+      p {
+        margin-top: 48px;
+        margin-left 48px;
+      }
     }
   }
 
- 
+  @media screen and (max-width: 960px) {
+    .profile-pic {
+      width: 300px;
+    }
+  }
 `
 
 const About = (props) => {
@@ -47,7 +79,12 @@ const About = (props) => {
               fluid={props.data.indexImage.childImageSharp.fluid} />
           </div>
           <section className="body">
-            <h1>RYAN YAMAMOTO</h1>
+            <header>
+              <h1>RYAN YAMAMOTO</h1>
+              <div className="line-one" />
+              <div className="line-two" />
+              <div className="line-three" />
+            </header>
             <p>Come eat with me!</p>
           </section>
         </div>

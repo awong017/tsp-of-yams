@@ -53,7 +53,7 @@ const AboutDiv = Styled.div`
     .body {
       margin-top: 100px;
       margin-left: 48px;
-      width: 700px;
+      width: 750px;
 
       p {
         margin-top: 48px;
@@ -63,8 +63,17 @@ const AboutDiv = Styled.div`
   }
 
   @media screen and (max-width: 960px) {
-    .profile-pic {
-      width: 300px;
+    .about-page {
+      display: block;
+
+      .profile-pic {
+        margin-left: 48px;
+        margin-right: 0px;
+      }
+
+      .body {
+        margin-top: 48px;
+        margin-left: 148px;
     }
   }
 `

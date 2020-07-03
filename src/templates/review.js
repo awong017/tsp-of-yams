@@ -19,7 +19,8 @@ const ReviewTemplateDiv = Styled.div`
 
     .body {
       margin-left: 24px;
-      width: 700px;
+      width: 750px;
+      border: 2px solid white;
 
       header {
         h1, h3 {
@@ -79,6 +80,30 @@ const ReviewTemplateDiv = Styled.div`
 
     .review-page {
       display: block;
+
+      header {
+        .line-one {
+          margin-bottom: 12px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .line-two {
+          margin-bottom: 12px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .line-three {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .body {
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       .container {
         margin-left: 24px;

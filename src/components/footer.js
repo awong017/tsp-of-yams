@@ -4,10 +4,10 @@ import Styled from "styled-components"
 const FooterDiv = Styled.div`
   footer {
     text-align: center;
-    color: white;
+    color: #AAAAAA;
 
     a {
-      color: white;
+      color: #AAAAAA;
       text-decoration: none;
 
       &:hover {

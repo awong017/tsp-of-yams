@@ -9,7 +9,7 @@ const ReviewTemplateDiv = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
   background-color: black;
-  color: white;
+  color: #EEEEEE;
 
   .review-page {
     display: grid;
@@ -20,7 +20,6 @@ const ReviewTemplateDiv = Styled.div`
     .body {
       margin-left: 24px;
       width: 750px;
-      border: 2px solid white;
 
       header {
         h1, h3 {
@@ -28,31 +27,11 @@ const ReviewTemplateDiv = Styled.div`
           font-weight: 100;
           color: #AAAAAA;
         }
-
-        .line-one {
-          border-top: 2px solid #AAAAAA;
-          margin-bottom: 12px;
-          width: 225px;
-        }
-  
-        .line-two {
-          border-top: 2px solid #AAAAAA;
-          margin-bottom: 12px;
-          margin-left: 16px;
-          width: 225px;
-        }
-  
-        .line-three {
-          border-top: 2px solid #AAAAAA;
-          margin-left: 32px;
-          width: 225px;
-        }
       }
 
       .content {
         font-family: 'Lora', serif;
         margin-top: 48px;
-        margin-left: 48px;
       }
     }
 
@@ -81,25 +60,6 @@ const ReviewTemplateDiv = Styled.div`
     .review-page {
       display: block;
 
-      header {
-        .line-one {
-          margin-bottom: 12px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .line-two {
-          margin-bottom: 12px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .line-three {
-          margin-left: auto;
-          margin-right: auto;
-        }
-      }
-
       .body {
         margin-left: auto;
         margin-right: auto;
@@ -121,9 +81,6 @@ const ReviewTemplate = ({ data }) => (
           <h1>{data.strapiReview.title}</h1>
           <h3>{data.strapiReview.location}</h3>
           <h3>{data.strapiReview.date.substring(0,10)}</h3>
-          <div className="line-one" />
-          <div className="line-two" />
-          <div className="line-three" />
         </header>
         <p className="content">{data.strapiReview.content}</p>
       </section>

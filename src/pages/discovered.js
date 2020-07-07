@@ -6,7 +6,7 @@ const DiscoveredDiv = Styled.div`
     min-height: 80vh;
     margin-bottom: 5vh;
     text-align: center;
-    color: white;
+    color: #EEEEEE;
 `
 
 const Discovered = () => {

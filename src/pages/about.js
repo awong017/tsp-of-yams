@@ -10,7 +10,7 @@ const AboutDiv = Styled.div`
 
   min-height: 80vh;
   margin-bottom: 5vh;
-  color: white;
+  color: #EEEEEE;
 
   .about-page {
     display: grid;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import Styled from 'styled-components';
 
@@ -18,45 +18,91 @@ const NavDiv = Styled.div`
 
         a {
             color: #AAAAAA;
-            text-decoration: none;
 
             &:hover {
                 cursor: pointer;
                 text-decoration: underline;
             }
         }
+
+        .link-unselected {
+            text-decoration: none;
+        }
+
+        .link-selected {
+            text-decoration: underline;
+        }
     }
 `
 
 const Nav = () => {
-  return (
-    <NavDiv>
-      <ul>
-        <li>
-            <Link to={"/about"}>
-                about
-            </Link>
-        </li>
-        <li>|</li>
-        <li>
-            <Link to={"/"}>
-                collection
-            </Link>
-        </li>
-        <li>|</li>
-        <li>
-            <Link to={"/discovered"}>
-                discovered
-            </Link>
-        </li>
-        <li>|</li>
-        <li>
-            <Link to={"/recipes"}>
-                recipes
-            </Link>
-        </li>
-        </ul>
-    </NavDiv>
+    const [link, updateLink] = useState({
+        linkOne: "link-unselected",
+        linkTwo: "link-unselected",
+        linkThree: "link-unselected",
+        linkFour: "link-unselected"
+    })
+
+    return (
+        <NavDiv>
+            <ul>
+                <li>
+                    <Link
+                        className={link.linkOne}
+                        to={"/about"} 
+                        onClick={() => {updateLink({
+                            linkOne: "link-selected",
+                            linkTwo: "link-unselected",
+                            linkThree: "link-unselected",
+                            linkFour: "link-unselected"
+                        }); console.log("This is the second function")}}>
+                        about
+                    </Link>
+                </li>
+                <li>|</li>
+                <li>
+                    <Link 
+                        className={link.linkTwo}
+                        to={"/"}
+                        onClick={() => updateLink({
+                            linkOne: "link-unselected",
+                            linkTwo: "link-selected",
+                            linkThree: "link-unselected",
+                            linkFour: "link-unselected"
+                        })}>
+                        collection
+                    </Link>
+                </li>
+                <li>|</li>
+                <li>
+                    <Link
+                        className={link.linkThree} 
+                        to={"/discovered"}
+                        onClick={() => updateLink(({
+                            linkOne: "link-unselected",
+                            linkTwo: "link-unselected",
+                            linkThree: "link-selected",
+                            linkFour: "link-unselected"
+                        }))}>
+                        discovered
+                    </Link>
+                </li>
+                <li>|</li>
+                <li>
+                    <Link
+                        className={link.linkFour} 
+                        to={"/recipes"}
+                        onClick={() => updateLink(({
+                            linkOne: "link-unselected",
+                            linkTwo: "link-unselected",
+                            linkThree: "link-unselected",
+                            linkFour: "link-selected"
+                        }))}>
+                        recipes
+                    </Link>
+                </li>
+            </ul>
+        </NavDiv>
     )
 }
 

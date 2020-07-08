@@ -43,11 +43,20 @@ const AboutDiv = Styled.div`
       }
     }
 
-    .profile-pic {
+    .container {
+      position: relative;
       margin-left: auto;
       margin-right: 48px;
       border: 2px solid white;
       width: 600px;
+
+      .black-overlay {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.1);
+      }
     }
 
     .body {
@@ -66,7 +75,7 @@ const AboutDiv = Styled.div`
     .about-page {
       display: block;
 
-      .profile-pic {
+      .container {
         margin-left: 48px;
         margin-right: 0px;
       }
@@ -83,9 +92,10 @@ const About = (props) => {
     <Layout>
       <AboutDiv>
         <div className="about-page">
-          <div className="profile-pic">
+          <div className="container">
             <Img
               fluid={props.data.indexImage.childImageSharp.fluid} />
+            <div className="black-overlay" />
           </div>
           <section className="body">
             <header>

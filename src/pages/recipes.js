@@ -4,14 +4,13 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Styled from "styled-components"
 
-const RecipesPageDiv = Styled.div`
+const RecipesDiv = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
   height: 100%;
   min-height: 100%;
   text-align: center;
-  color: white;
 
   h1 {
     font-family: 'Montserrat', sans-serif;
@@ -46,7 +45,7 @@ const RecipesPageDiv = Styled.div`
         width: 600px;
         height: 240px;
         padding-top: 60px;
-        color: white;
+        color: #EEEEEE;
         opacity: 0.5;
         transition: 0.5s;
       }
@@ -61,33 +60,32 @@ const reverseData = (data) => {
   return newData;
 }
 
-const RecipesPage = ({ data }) => (
+const Recipes = ({ data }) => (
   <Layout>
-    <RecipesPageDiv>
+    <RecipesDiv>
       <ul>
-        {reverseData(data.allStrapiReview.edges).map(review =>
+        {reverseData(data.allStrapiRecipe.edges).map(recipe =>
           <li>
-            <Link to={review.node.id}>
+            <Link to={recipe.node.id}>
               <div className="container">
-                <Img fluid={review.node.cover.childImageSharp.fluid} />
+                <Img fluid={recipe.node.cover.childImageSharp.fluid} />
                 <div className="content">
-                  <h1>{(review.node.title).toUpperCase()}</h1>
-                  <p>{review.node.location}</p>
+                  <h1>{(recipe.node.title).toUpperCase()}</h1>
                 </div>
               </div>
             </Link>
           </li>
         )}
       </ul>
-    </RecipesPageDiv>
+    </RecipesDiv>
   </Layout>
 )
 
-export default RecipesPage
+export default Recipes
 
 export const pageQuery = graphql`
   query {
-    allStrapiReview {
+    allStrapiRecipe {
       edges {
         node {
           id
@@ -99,7 +97,6 @@ export const pageQuery = graphql`
             }
           }
           date
-          location
           title
         }
       }

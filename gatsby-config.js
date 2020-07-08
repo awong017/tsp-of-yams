@@ -20,6 +20,8 @@ module.exports = {
       options: {
         apiURL: `http://localhost:1337`,
         contentTypes: [
+          `recipe`,
+          `discovery`,
           `review`,
           `user`,
         ],

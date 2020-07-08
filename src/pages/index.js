@@ -11,7 +11,6 @@ const IndexPageDiv = Styled.div`
   height: 100%;
   min-height: 100%;
   text-align: center;
-  color: white;
 
   h1 {
     font-family: 'Montserrat', sans-serif;
@@ -46,7 +45,7 @@ const IndexPageDiv = Styled.div`
         width: 600px;
         height: 240px;
         padding-top: 60px;
-        color: white;
+        color: #EEEEEE;
         opacity: 0.5;
         transition: 0.5s;
       }

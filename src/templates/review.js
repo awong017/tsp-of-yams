@@ -47,7 +47,7 @@ const ReviewTemplateDiv = Styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,.1);
+        background-color: rgba(0,0,0,.2);
       }
     }
   }

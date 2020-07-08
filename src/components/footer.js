@@ -1,7 +1,16 @@
 import React from "react"
 import Styled from "styled-components"
+import Instagram48 from "../images/instagram48.png"
 
 const FooterDiv = Styled.div`
+  .icon {
+    margin-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    text-align: center; 
+  }
+
   footer {
     text-align: center;
     color: #AAAAAA;
@@ -21,6 +30,11 @@ const FooterDiv = Styled.div`
 const Footer = () => {
   return (
     <FooterDiv>
+      <div className="icon">
+        <a href="https://www.instagram.com/ry_ryams/">
+          <img src={Instagram48} alt="instagram" />
+        </a>
+      </div>
        <footer>
           © {new Date().getFullYear()} Tsp of Yams, built with
           {` `}

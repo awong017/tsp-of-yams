@@ -40,7 +40,55 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
   });
+
+  const getDiscoveries = makeRequest(graphql, `
+  {
+    allStrapiDiscovery {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+  `).then(result => {
+  // Create pages for each discovery.
+  result.data.allStrapiDiscovery.edges.forEach(({ node }) => {
+    createPage({
+      path: `/${node.id}`,
+      component: path.resolve(`src/templates/discovery.js`),
+      context: {
+        id: node.id,
+      },
+    })
+  })
+});
+
+const getRecipes = makeRequest(graphql, `
+  {
+    allStrapiRecipe {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+  `).then(result => {
+  // Create pages for each recipe.
+  result.data.allStrapiRecipe.edges.forEach(({ node }) => {
+    createPage({
+      path: `/${node.id}`,
+      component: path.resolve(`src/templates/recipe.js`),
+      context: {
+        id: node.id,
+      },
+    })
+  })
+});
   
-  // Query for reviews nodes to use in creating pages.
+  // Query for reviews, discoveries, and recipes nodes to use in creating pages.
   return getReviews;
+  return getDiscoveries;
+  return getRecipes;
 };

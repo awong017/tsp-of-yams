@@ -75,7 +75,7 @@ const RecipeTemplateDiv = Styled.div`
 const RecipeTemplate = ({ data }) => (
   <RecipeTemplateDiv>
     <Layout>
-    <div className="Recipe-page">
+    <div className="recipe-page">
       <section className="body">
         <header>
           <h1>{data.strapiRecipe.title}</h1>

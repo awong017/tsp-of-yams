@@ -75,7 +75,7 @@ const DiscoveryTemplateDiv = Styled.div`
 const DiscoveryTemplate = ({ data }) => (
   <DiscoveryTemplateDiv>
     <Layout>
-    <div className="Discovery-page">
+    <div className="discovery-page">
       <section className="body">
         <header>
           <h1>{data.strapiDiscovery.title}</h1>

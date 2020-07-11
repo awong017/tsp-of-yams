@@ -52,19 +52,12 @@ const IndexPageDiv = Styled.div`
     }
   }
 `
-const reverseData = (data) => {
-  let newData = [];
-  for (let i=data.length-1; i>=0; i--) {
-      newData.push(data[i]);
-  }
-  return newData;
-}
 
 const IndexPage = ({ data }) => (
   <Layout>
     <IndexPageDiv>
       <ul>
-        {reverseData(data.allStrapiReview.edges).map(review =>
+        {data.allStrapiReview.edges.map(review =>
           <li>
             <Link to={review.node.id}>
               <div className="container">

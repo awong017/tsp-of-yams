@@ -52,11 +52,15 @@ const DiscoveredDiv = Styled.div`
     }
   }
 `
-const reverseData = (data) => {
-  let newData = [];
-  for (let i=data.length-1; i>=0; i--) {
-      newData.push(data[i]);
-  }
+const sortData = (data) => {
+  const newData = data.map(review => ({
+      id: review.node.id,
+      title: review.node.title,
+      cover: review.node.cover,
+      date: new Date(review.node.date.substring(0,10)).getTime()/1000 
+    })
+  )
+  newData.sort((a,b) => b.date - a.date);
   return newData;
 }
 
@@ -64,13 +68,13 @@ const Discovered = ({ data }) => (
   <Layout>
     <DiscoveredDiv>
       <ul>
-        {reverseData(data.allStrapiDiscovery.edges).map(discovery =>
+        {sortData(data.allStrapiDiscovery.edges).map(discovery =>
           <li>
-            <Link to={discovery.node.id}>
+            <Link to={discovery.id}>
               <div className="container">
-                <Img fluid={discovery.node.cover.childImageSharp.fluid} />
+                <Img fluid={discovery.cover.childImageSharp.fluid} />
                 <div className="content">
-                  <h1>{(discovery.node.title).toUpperCase()}</h1>
+                  <h1>{(discovery.title).toUpperCase()}</h1>
                 </div>
               </div>
             </Link>

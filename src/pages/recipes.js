@@ -52,11 +52,15 @@ const RecipesDiv = Styled.div`
     }
   }
 `
-const reverseData = (data) => {
-  let newData = [];
-  for (let i=data.length-1; i>=0; i--) {
-      newData.push(data[i]);
-  }
+const sortData = (data) => {
+  const newData = data.map(review => ({
+      id: review.node.id,
+      title: review.node.title,
+      cover: review.node.cover,
+      date: new Date(review.node.date.substring(0,10)).getTime()/1000 
+    })
+  )
+  newData.sort((a,b) => b.date - a.date);
   return newData;
 }
 
@@ -64,13 +68,13 @@ const Recipes = ({ data }) => (
   <Layout>
     <RecipesDiv>
       <ul>
-        {reverseData(data.allStrapiRecipe.edges).map(recipe =>
+        {sortData(data.allStrapiRecipe.edges).map(recipe =>
           <li>
-            <Link to={recipe.node.id}>
+            <Link to={recipe.id}>
               <div className="container">
-                <Img fluid={recipe.node.cover.childImageSharp.fluid} />
+                <Img fluid={recipe.cover.childImageSharp.fluid} />
                 <div className="content">
-                  <h1>{(recipe.node.title).toUpperCase()}</h1>
+                  <h1>{(recipe.title).toUpperCase()}</h1>
                 </div>
               </div>
             </Link>

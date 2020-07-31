@@ -31,7 +31,7 @@ const Footer = () => {
   return (
     <FooterDiv>
       <div className="icon">
-        <a href="https://www.instagram.com/ry_ryams/">
+        <a href="https://www.instagram.com/tspofyams/">
           <img src={Instagram48} alt="instagram" />
         </a>
       </div>

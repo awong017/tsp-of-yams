@@ -4,7 +4,7 @@ import Styled from 'styled-components';
 
 const NavDiv = Styled.div`
     margin-bottom: 48px;
-    border-top: 1px solid white;
+    border-top: 1px solid black;
     color: white;
 
     ul {

@@ -52,11 +52,17 @@ const IndexPageDiv = Styled.div`
     }
   }
 `
-const reverseData = (data) => {
-  let newData = [];
-  for (let i=data.length-1; i>=0; i--) {
-      newData.push(data[i]);
-  }
+
+const sortData = (data) => {
+  const newData = data.map(review => ({
+      id: review.node.id,
+      title: review.node.title,
+      location: review.node.location,
+      cover: review.node.cover,
+      date: new Date(review.node.date.substring(0,10)).getTime()/1000 
+    })
+  )
+  newData.sort((a,b) => b.date - a.date);
   return newData;
 }
 
@@ -64,14 +70,14 @@ const IndexPage = ({ data }) => (
   <Layout>
     <IndexPageDiv>
       <ul>
-        {reverseData(data.allStrapiReview.edges).map(review =>
+        {sortData(data.allStrapiReview.edges).map(review =>
           <li>
-            <Link to={review.node.id}>
+            <Link to={review.id}>
               <div className="container">
-                <Img fluid={review.node.cover.childImageSharp.fluid} />
+                <Img fluid={review.cover.childImageSharp.fluid} />
                 <div className="content">
-                  <h1>{(review.node.title).toUpperCase()}</h1>
-                  <p>{review.node.location}</p>
+                  <h1>{(review.title).toUpperCase()}</h1>
+                  <p>{review.location}</p>
                 </div>
               </div>
             </Link>
